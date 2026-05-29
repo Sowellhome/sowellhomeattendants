@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us | Sowell Home Attendants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:#FDFAF5;color:#1C1C1C;overflow-x:hidden;line-height:1.7}
+:root{--forest:#1A3A2A;--forest-mid:#2D5C3F;--sage:#5A8A6A;--sage-light:#8FBA9A;--sage-pale:#D4E8D8;--cream:#FDFAF5;--warm:#F5EFE2;--gold:#C8A84B;--gold-light:#E8D49A;--charcoal:#1C1C1C;--gray:#6B6460;--light:#EDE8E0;--r:16px;--shadow:0 8px 48px rgba(26,58,42,.12);--shadow-lg:0 20px 80px rgba(26,58,42,.18)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:76px;background:rgba(253,250,245,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(90,138,106,.15);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 40px rgba(26,58,42,.1)}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1.2}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--forest);letter-spacing:.02em}
+.logo-sub{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);font-weight:500}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-size:.82rem;font-weight:500;color:var(--gray);letter-spacing:.05em;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:100%;height:1.5px;background:var(--gold);transition:right .3s}
+.nav-links a:hover{color:var(--forest)}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+.nav-links a.active{color:var(--forest)}
+.nav-btn{background:var(--forest)!important;color:#fff!important;padding:9px 22px;border-radius:40px;font-weight:600!important}
+.nav-btn::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);border-radius:2px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:50px;font-family:'Jost',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.05em;text-decoration:none;cursor:pointer;border:none;transition:all .25s ease}
+.btn-primary{background:var(--forest);color:#fff;box-shadow:0 6px 28px rgba(26,58,42,.3)}
+.btn-primary:hover{background:var(--forest-mid);transform:translateY(-2px);box-shadow:0 10px 36px rgba(26,58,42,.38)}
+.btn-outline{background:transparent;color:var(--forest);border:2px solid var(--forest)}
+.btn-outline:hover{background:var(--forest);color:#fff;transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--forest)}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px)}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--forest-mid);margin-bottom:14px}
+.section-label::before{content:'';display:inline-block;width:28px;height:1.5px;background:var(--gold)}
+.section-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:700;color:var(--forest);line-height:1.15;margin-bottom:18px}
+.section-p{font-size:.95rem;color:var(--gray);line-height:1.82;max-width:540px;font-weight:300}
+.page-hero{padding:150px 80px 90px;background:linear-gradient(135deg,var(--forest) 0%,var(--forest-mid) 60%,#3D7A55 100%);text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(143,186,154,.1) 0%,transparent 60%)}
+.page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
+.breadcrumb{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:18px;font-size:.78rem;color:rgba(255,255,255,.5);position:relative;z-index:1}
+.breadcrumb a{color:var(--sage-light);text-decoration:none}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;margin-bottom:14px;position:relative;z-index:1;font-weight:700}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.72);max-width:560px;margin:0 auto;line-height:1.78;position:relative;z-index:1;font-weight:300}
+.cta-band{background:linear-gradient(130deg,var(--forest) 0%,var(--forest-mid) 55%,#3D7A55 100%);padding:100px 80px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:-120px;left:-120px;width:500px;height:500px;background:rgba(200,168,75,.07);border-radius:50%}
+.cta-band::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:rgba(143,186,154,.06);border-radius:50%}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:14px;position:relative;z-index:1}
+.cta-band p{color:rgba(255,255,255,.72);font-size:.97rem;max-width:500px;margin:0 auto 40px;line-height:1.78;font-weight:300;position:relative;z-index:1}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+footer{background:var(--forest);color:#fff;padding:80px 80px 36px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:56px;margin-bottom:56px}
+.f-brand .f-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;display:block;margin-bottom:4px}
+.f-brand .f-sub{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-light);display:block;margin-bottom:16px}
+.f-brand p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.72;max-width:270px}
+.f-col h4{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-light);margin-bottom:20px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.f-col ul a{text-decoration:none;font-size:.83rem;color:rgba(255,255,255,.55);transition:color .2s}
+.f-col ul a:hover{color:#fff}
+.f-contact p{font-size:.84rem;color:rgba(255,255,255,.6);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.f-contact a{color:var(--sage-light);text-decoration:none}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.35)}
+@media(max-width:1024px){nav{padding:0 32px}.page-hero{padding:130px 40px 80px}.cta-band{padding:80px 40px}footer{padding:60px 40px 32px}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--cream);padding:24px 32px;gap:18px;border-bottom:1px solid var(--light);box-shadow:0 20px 50px rgba(0,0,0,.1)}.nav-btn{display:none}.page-hero{padding:110px 28px 70px}.cta-band{padding:80px 28px}footer{padding:60px 28px 28px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.footer-bottom{flex-direction:column;gap:10px;text-align:center}}
+</style>
+<style>
+.contact-wrap{padding:80px;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.3fr;gap:80px;align-items:start}
+.info-card{background:linear-gradient(145deg,var(--forest),var(--forest-mid));border-radius:24px;padding:52px 44px;color:#fff;position:sticky;top:100px}
+.info-card h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin-bottom:10px}
+.info-card>p{font-size:.88rem;opacity:.7;line-height:1.75;margin-bottom:40px;font-weight:300}
+.cd{display:flex;gap:14px;align-items:flex-start;margin-bottom:26px}
+.cd-ico{width:42px;height:42px;background:rgba(143,186,154,.18);border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.cd h4{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;opacity:.5;margin-bottom:4px}
+.cd p{font-size:.88rem}
+.cd a{color:var(--sage-light);text-decoration:none}
+.avail{display:flex;align-items:center;gap:8px;background:rgba(90,138,106,.2);border-radius:50px;padding:8px 16px;font-size:.78rem;margin-top:32px;width:fit-content}
+.avail-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.form-wrap h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:var(--forest);margin-bottom:8px}
+.form-wrap>p{font-size:.88rem;color:var(--gray);margin-bottom:36px;font-weight:300}
+.fg{margin-bottom:20px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fg label{display:block;font-size:.75rem;font-weight:600;letter-spacing:.06em;color:var(--charcoal);margin-bottom:7px}
+.fg input,.fg select,.fg textarea{width:100%;padding:13px 16px;border:1.5px solid var(--light);border-radius:10px;font-family:'Jost',sans-serif;font-size:.88rem;color:var(--charcoal);background:var(--cream);transition:border-color .2s,box-shadow .2s;outline:none;appearance:none;-webkit-appearance:none}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--sage);box-shadow:0 0 0 4px rgba(90,138,106,.1)}
+.fg textarea{min-height:130px;resize:vertical}
+.form-note{font-size:.75rem;color:var(--gray);text-align:center;margin-top:12px;font-weight:300}
+.success-box{display:none;background:rgba(90,138,106,.08);border:1.5px solid var(--sage-pale);border-radius:var(--r);padding:36px;text-align:center}
+.success-box .ico{font-size:3rem;margin-bottom:12px}
+.success-box h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--forest);margin-bottom:8px}
+.success-box p{font-size:.88rem;color:var(--gray);font-weight:300}
+.faq{background:var(--warm);padding:80px}
+.faq-inner{max-width:1000px;margin:0 auto}
+.faq-hd{text-align:center;margin-bottom:50px}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.faq-card{background:#fff;border-radius:var(--r);padding:28px}
+.faq-card h4{font-family:'Cormorant Garamond',serif;font-size:1.02rem;color:var(--forest);margin-bottom:10px;font-weight:700}
+.faq-card p{font-size:.86rem;color:var(--gray);line-height:1.72;font-weight:300}
+@media(max-width:768px){.contact-wrap{grid-template-columns:1fr;gap:48px;padding:60px 28px}.info-card{position:static}.fr{grid-template-columns:1fr}.faq{padding:60px 28px}.faq-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="logo">
+    <span class="logo-name">Sowell Home Attendants</span>
+    <span class="logo-sub">Care &middot; Dignity &middot; Comfort</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" id="svc-link">Services</a></li>
+    <li><a href="about.html" id="about-link">About Us</a></li>
+    <li><a href="contact.html" id="contact-link">Contact</a></li>
+    <li><a href="contact.html" class="nav-btn">Get Started</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<script>document.getElementById('contact-link').classList.add('active')</script>
+<section class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>&rsaquo;</span><span>Contact</span></div>
+  <h1>Let&rsquo;s Start the Conversation</h1>
+  <p>Reach out for a free, no-obligation consultation. We&rsquo;re here to listen and help you find the right care for your loved one.</p>
+</section>
+<div class="contact-wrap">
+  <div class="info-card">
+    <h2>We&rsquo;re Here for You</h2>
+    <p>Whether you&rsquo;re exploring options or ready to get started, our care coordinators are happy to answer every question &mdash; with no pressure and no rush.</p>
+    <div class="cd">
+      <div class="cd-ico">&#9993;</div>
+      <div><h4>Email Us</h4><p><a href="mailto:Info@sowellhomeattendants.com">Info@sowellhomeattendants.com</a></p></div>
+    </div>
+    <div class="cd">
+      <div class="cd-ico">&#128222;</div>
+      <div><h4>Call Us</h4><p>Contact us for our direct phone number</p></div>
+    </div>
+    <div class="cd">
+      <div class="cd-ico">&#128205;</div>
+      <div><h4>Service Area</h4><p>Serving families in our community &amp; surrounding areas. Contact us to confirm your location.</p></div>
+    </div>
+    <div class="cd">
+      <div class="cd-ico">&#128336;</div>
+      <div><h4>Office Hours</h4><p>Mon &ndash; Fri: 8:00 AM &ndash; 6:00 PM<br/>Care inquiries: 24/7</p></div>
+    </div>
+    <div class="avail"><span class="avail-dot"></span><span>Care coordinators available now</span></div>
+  </div>
+  <div class="form-wrap">
+    <h2>Send Us a Message</h2>
+    <p>Fill out the form below and a care coordinator will be in touch within one business day.</p>
+    <div id="form">
+      <div class="fr">
+        <div class="fg"><label>First Name *</label><input id="fn" type="text" placeholder="Your first name"/></div>
+        <div class="fg"><label>Last Name *</label><input id="ln" type="text" placeholder="Your last name"/></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>Email Address *</label><input id="em" type="email" placeholder="your@email.com"/></div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(000) 000-0000"/></div>
+      </div>
+      <div class="fg">
+        <label>Type of Inquiry *</label>
+        <select id="inq">
+          <option value="" disabled selected>Select one...</option>
+          <option>Schedule a Free Consultation</option>
+          <option>Ask About Services</option>
+          <option>Insurance / Payment Questions</option>
+          <option>Caregiver Employment Opportunities</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>Who Is Care For?</label>
+        <select>
+          <option value="" disabled selected>Select one...</option>
+          <option>Parent</option><option>Spouse / Partner</option>
+          <option>Myself</option><option>Grandparent</option><option>Other Family Member</option>
+        </select>
+      </div>
+      <div class="fg"><label>Tell Us More</label><textarea placeholder="Share details about your loved one&rsquo;s needs, questions you have, or what kind of help you&rsquo;re looking for..."></textarea></div>
+      <button class="btn btn-primary" onclick="submitForm()" style="width:100%;justify-content:center;font-size:.92rem;padding:16px">
+        Send Message
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <p class="form-note">We respect your privacy. Your information is never shared with third parties.</p>
+    </div>
+    <div class="success-box" id="success">
+      <div class="ico">&#128154;</div>
+      <h3>Thank You for Reaching Out!</h3>
+      <p>A care coordinator will contact you within one business day. For urgent care needs, please call us directly.</p>
+    </div>
+  </div>
+</div>
+<div class="faq">
+  <div class="faq-inner">
+    <div class="faq-hd">
+      <div class="section-label" style="justify-content:center">Common Questions</div>
+      <h2 class="section-h" style="text-align:center">Frequently Asked Questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-card"><h4>How quickly can care begin?</h4><p>In many cases we can arrange care within 24&ndash;48 hours of your initial consultation, including emergency placements.</p></div>
+      <div class="faq-card"><h4>What if I don&rsquo;t like my caregiver?</h4><p>A good match is important. If a caregiver isn&rsquo;t the right fit, we&rsquo;ll find someone who is &mdash; no questions asked.</p></div>
+      <div class="faq-card"><h4>Do you accept Medicaid or Medicare?</h4><p>We accept private pay, long-term care insurance, and some Medicaid programs. Contact us to discuss your specific coverage.</p></div>
+      <div class="faq-card"><h4>Are caregivers employees or contractors?</h4><p>Our caregivers are employees of Sowell Home Attendants &mdash; covered by our insurance, supervised, and held to our standards.</p></div>
+      <div class="faq-card"><h4>Can I get a consistent caregiver each visit?</h4><p>Yes &mdash; we prioritize caregiver consistency so your loved one builds a comfortable, trusting relationship over time.</p></div>
+      <div class="faq-card"><h4>What areas do you serve?</h4><p>We serve clients in our local community and surrounding areas. Contact us directly to confirm availability in your location.</p></div>
+    </div>
+  </div>
+</div>
+<section class="cta-band">
+  <h2>Your Loved One Deserves the Best</h2>
+  <p>Take the first step today. Quality care could be in place sooner than you think.</p>
+  <div class="cta-actions">
+    <a href="mailto:Info@sowellhomeattendants.com" class="btn btn-white">Email Us Now</a>
+    <a href="services.html" class="btn btn-outline" style="border-color:rgba(255,255,255,.45);color:#fff">View Our Services</a>
+  </div>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <span class="f-name">Sowell Home Attendants</span>
+      <span class="f-sub">Care &middot; Dignity &middot; Comfort</span>
+      <p>Compassionate, professional home care for families who deserve the best &mdash; delivered with warmth, expertise, and heart.</p>
+    </div>
+    <div class="f-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Personal Care</a></li>
+        <li><a href="services.html">Companion Care</a></li>
+        <li><a href="services.html">Skilled Nursing</a></li>
+        <li><a href="services.html">Memory Care</a></li>
+        <li><a href="services.html">Overnight Care</a></li>
+        <li><a href="services.html">Respite Care</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">Our Values</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="f-col f-contact">
+      <h4>Get in Touch</h4>
+      <p>&#9993; <a href="mailto:Info@sowellhomeattendants.com">Info@sowellhomeattendants.com</a></p>
+      <p>&#128205; Serving families in our community and surrounding areas</p>
+      <p>&#128336; Available 24/7 for care inquiries</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Sowell Home Attendants. All rights reserved.</span>
+    <span>Licensed Home Care Agency</span>
+  </div>
+</footer>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>30)})
+</script>
+<script>
+function submitForm(){
+  var fn=document.getElementById('fn').value.trim();
+  var em=document.getElementById('em').value.trim();
+  var inq=document.getElementById('inq').value;
+  if(!fn||!em||!inq){alert('Please fill in your name, email, and inquiry type.');return}
+  document.getElementById('form').style.display='none';
+  var s=document.getElementById('success');
+  s.style.display='block';
+  s.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</body></html>

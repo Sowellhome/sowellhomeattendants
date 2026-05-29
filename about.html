@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>About Us | Sowell Home Attendants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:#FDFAF5;color:#1C1C1C;overflow-x:hidden;line-height:1.7}
+:root{--forest:#1A3A2A;--forest-mid:#2D5C3F;--sage:#5A8A6A;--sage-light:#8FBA9A;--sage-pale:#D4E8D8;--cream:#FDFAF5;--warm:#F5EFE2;--gold:#C8A84B;--gold-light:#E8D49A;--charcoal:#1C1C1C;--gray:#6B6460;--light:#EDE8E0;--r:16px;--shadow:0 8px 48px rgba(26,58,42,.12);--shadow-lg:0 20px 80px rgba(26,58,42,.18)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 64px;height:76px;background:rgba(253,250,245,.94);backdrop-filter:blur(16px);border-bottom:1px solid rgba(90,138,106,.15);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 4px 40px rgba(26,58,42,.1)}
+.logo{text-decoration:none;display:flex;flex-direction:column;line-height:1.2}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--forest);letter-spacing:.02em}
+.logo-sub{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);font-weight:500}
+.nav-links{display:flex;gap:36px;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-size:.82rem;font-weight:500;color:var(--gray);letter-spacing:.05em;transition:color .2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:100%;height:1.5px;background:var(--gold);transition:right .3s}
+.nav-links a:hover{color:var(--forest)}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+.nav-links a.active{color:var(--forest)}
+.nav-btn{background:var(--forest)!important;color:#fff!important;padding:9px 22px;border-radius:40px;font-weight:600!important}
+.nav-btn::after{display:none!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);border-radius:2px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:50px;font-family:'Jost',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.05em;text-decoration:none;cursor:pointer;border:none;transition:all .25s ease}
+.btn-primary{background:var(--forest);color:#fff;box-shadow:0 6px 28px rgba(26,58,42,.3)}
+.btn-primary:hover{background:var(--forest-mid);transform:translateY(-2px);box-shadow:0 10px 36px rgba(26,58,42,.38)}
+.btn-outline{background:transparent;color:var(--forest);border:2px solid var(--forest)}
+.btn-outline:hover{background:var(--forest);color:#fff;transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--forest)}
+.btn-white:hover{background:var(--cream);transform:translateY(-2px)}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--forest-mid);margin-bottom:14px}
+.section-label::before{content:'';display:inline-block;width:28px;height:1.5px;background:var(--gold)}
+.section-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3.5vw,2.9rem);font-weight:700;color:var(--forest);line-height:1.15;margin-bottom:18px}
+.section-p{font-size:.95rem;color:var(--gray);line-height:1.82;max-width:540px;font-weight:300}
+.page-hero{padding:150px 80px 90px;background:linear-gradient(135deg,var(--forest) 0%,var(--forest-mid) 60%,#3D7A55 100%);text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(143,186,154,.1) 0%,transparent 60%)}
+.page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:var(--cream);clip-path:ellipse(55% 100% at 50% 100%)}
+.breadcrumb{display:flex;align-items:center;gap:8px;justify-content:center;margin-bottom:18px;font-size:.78rem;color:rgba(255,255,255,.5);position:relative;z-index:1}
+.breadcrumb a{color:var(--sage-light);text-decoration:none}
+.page-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,5vw,3.8rem);color:#fff;margin-bottom:14px;position:relative;z-index:1;font-weight:700}
+.page-hero p{font-size:1rem;color:rgba(255,255,255,.72);max-width:560px;margin:0 auto;line-height:1.78;position:relative;z-index:1;font-weight:300}
+.cta-band{background:linear-gradient(130deg,var(--forest) 0%,var(--forest-mid) 55%,#3D7A55 100%);padding:100px 80px;text-align:center;position:relative;overflow:hidden}
+.cta-band::before{content:'';position:absolute;top:-120px;left:-120px;width:500px;height:500px;background:rgba(200,168,75,.07);border-radius:50%}
+.cta-band::after{content:'';position:absolute;bottom:-100px;right:-100px;width:400px;height:400px;background:rgba(143,186,154,.06);border-radius:50%}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:14px;position:relative;z-index:1}
+.cta-band p{color:rgba(255,255,255,.72);font-size:.97rem;max-width:500px;margin:0 auto 40px;line-height:1.78;font-weight:300;position:relative;z-index:1}
+.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+footer{background:var(--forest);color:#fff;padding:80px 80px 36px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:56px;margin-bottom:56px}
+.f-brand .f-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;display:block;margin-bottom:4px}
+.f-brand .f-sub{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--sage-light);display:block;margin-bottom:16px}
+.f-brand p{font-size:.84rem;color:rgba(255,255,255,.55);line-height:1.72;max-width:270px}
+.f-col h4{font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-light);margin-bottom:20px}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.f-col ul a{text-decoration:none;font-size:.83rem;color:rgba(255,255,255,.55);transition:color .2s}
+.f-col ul a:hover{color:#fff}
+.f-contact p{font-size:.84rem;color:rgba(255,255,255,.6);margin-bottom:10px;display:flex;align-items:flex-start;gap:10px;line-height:1.5}
+.f-contact a{color:var(--sage-light);text-decoration:none}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:rgba(255,255,255,.35)}
+@media(max-width:1024px){nav{padding:0 32px}.page-hero{padding:130px 40px 80px}.cta-band{padding:80px 40px}footer{padding:60px 40px 32px}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--cream);padding:24px 32px;gap:18px;border-bottom:1px solid var(--light);box-shadow:0 20px 50px rgba(0,0,0,.1)}.nav-btn{display:none}.page-hero{padding:110px 28px 70px}.cta-band{padding:80px 28px}footer{padding:60px 28px 28px}.footer-grid{grid-template-columns:1fr 1fr;gap:32px}.footer-bottom{flex-direction:column;gap:10px;text-align:center}}
+</style>
+<style>
+.about-main{padding:80px 80px 100px;max-width:1200px;margin:0 auto}
+.about-intro{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-bottom:100px}
+.quote-card{background:linear-gradient(145deg,var(--forest),var(--forest-mid));border-radius:24px;padding:52px 48px;color:#fff;position:relative;overflow:hidden}
+.quote-card::after{content:'"';position:absolute;bottom:-40px;right:20px;font-family:'Cormorant Garamond',serif;font-size:11rem;opacity:.06;line-height:1}
+.quote-card blockquote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.22rem;line-height:1.65;position:relative;z-index:1}
+.quote-card cite{display:block;margin-top:20px;font-style:normal;font-size:.8rem;font-family:'Jost',sans-serif;opacity:.65;letter-spacing:.05em}
+.about-stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:32px}
+.astat .n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--forest);line-height:1}
+.astat .l{font-size:.75rem;color:var(--gray);letter-spacing:.05em;margin-top:3px}
+.values{background:var(--warm);padding:80px}
+.values-hd{text-align:center;margin-bottom:56px}
+.val-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.val-card{background:#fff;border-radius:var(--r);padding:36px 28px;text-align:center;border:1px solid transparent;transition:all .3s}
+.val-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(90,138,106,.12)}
+.val-icon{font-size:2.2rem;margin-bottom:16px}
+.val-card h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--forest);margin-bottom:10px}
+.val-card p{font-size:.86rem;color:var(--gray);line-height:1.72;font-weight:300}
+.team-sec{padding:80px;background:var(--cream)}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto}
+.team-card{background:#fff;border-radius:24px;padding:48px;box-shadow:var(--shadow)}
+.team-card h3{font-family:'Cormorant Garamond',serif;font-size:1.55rem;color:var(--forest);margin-bottom:12px}
+.team-card p{font-size:.9rem;color:var(--gray);line-height:1.78;margin-bottom:28px;font-weight:300}
+.check-row{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--charcoal);margin-bottom:10px}
+.check-row::before{content:"\2713";width:20px;height:20px;background:rgba(90,138,106,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--forest-mid);flex-shrink:0}
+@media(max-width:768px){.about-main{padding:60px 28px}.about-intro{grid-template-columns:1fr;gap:48px}.values{padding:60px 28px}.val-grid{grid-template-columns:1fr}.team-sec{padding:60px 28px}.team-grid{grid-template-columns:1fr;gap:48px}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="logo">
+    <span class="logo-name">Sowell Home Attendants</span>
+    <span class="logo-sub">Care &middot; Dignity &middot; Comfort</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" id="svc-link">Services</a></li>
+    <li><a href="about.html" id="about-link">About Us</a></li>
+    <li><a href="contact.html" id="contact-link">Contact</a></li>
+    <li><a href="contact.html" class="nav-btn">Get Started</a></li>
+  </ul>
+  <div class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<script>document.getElementById('about-link').classList.add('active')</script>
+<section class="page-hero">
+  <div class="breadcrumb"><a href="index.html">Home</a><span>&rsaquo;</span><span>About Us</span></div>
+  <h1>Our Story &amp; Our Mission</h1>
+  <p>Sowell Home Attendants was founded on a simple belief: that every person deserves to age with grace, dignity, and the comfort of home.</p>
+</section>
+<div class="about-main">
+  <div class="about-intro">
+    <div class="quote-card">
+      <blockquote>
+        &ldquo;We started this agency because we believe home is where healing happens. When people are surrounded by familiar walls, their routines, and people who genuinely care &mdash; they do better. Our mission is to make that possible for every family we serve.&rdquo;
+        <cite>&mdash; Sowell Home Attendants, Founding Vision</cite>
+      </blockquote>
+    </div>
+    <div>
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-h">A Care Agency Built on Heart</h2>
+      <p class="section-p" style="max-width:100%;margin-bottom:18px">Sowell Home Attendants was founded with a deep personal commitment to the people we serve. We&rsquo;ve seen firsthand what quality home care means to a family &mdash; the relief it brings, the dignity it preserves, and the independence it restores.</p>
+      <p class="section-p" style="max-width:100%;margin-bottom:18px">We&rsquo;re not a large, impersonal corporation. We&rsquo;re a care agency where leadership is accessible, every client relationship is taken seriously, and caregivers are valued as the professionals they are.</p>
+      <div class="about-stats">
+        <div class="astat"><div class="n">500+</div><div class="l">Families Served</div></div>
+        <div class="astat"><div class="n">24/7</div><div class="l">On-Call Support</div></div>
+        <div class="astat"><div class="n">100%</div><div class="l">Background Checked</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="values" id="values">
+  <div class="values-hd">
+    <div class="section-label" style="justify-content:center">What We Stand For</div>
+    <h2 class="section-h" style="text-align:center">Our Core Values</h2>
+    <p class="section-p" style="margin:0 auto;text-align:center;max-width:520px">These guide how we hire, train, care, and communicate &mdash; every single day.</p>
+  </div>
+  <div class="val-grid">
+    <div class="val-card"><div class="val-icon">&#128155;</div><h3>Compassion</h3><p>We care deeply &mdash; not just professionally, but personally. Every client is treated with the warmth we&rsquo;d want for our own loved ones.</p></div>
+    <div class="val-card"><div class="val-icon">&#127895;</div><h3>Dignity</h3><p>We preserve the independence, privacy, and self-worth of every person in our care. Dignity is foundational to everything we do.</p></div>
+    <div class="val-card"><div class="val-icon">&#129309;</div><h3>Trust</h3><p>Families invite us into their homes and lives. We take that trust seriously &mdash; earning and maintaining it through honesty and consistency.</p></div>
+    <div class="val-card"><div class="val-icon">&#11088;</div><h3>Excellence</h3><p>We hold every caregiver and ourselves to high standards &mdash; rigorous training, ongoing development, and a relentless focus on quality.</p></div>
+    <div class="val-card"><div class="val-icon">&#127807;</div><h3>Whole-Person Care</h3><p>Health is physical, emotional, and social. We address all of it &mdash; because a thriving life means more than managing medical needs.</p></div>
+    <div class="val-card"><div class="val-icon">&#128106;</div><h3>Family Partnership</h3><p>We consider family members partners &mdash; not bystanders. Open communication and collaboration are built into how we work.</p></div>
+  </div>
+</div>
+<div class="team-sec">
+  <div class="team-grid">
+    <div>
+      <div class="section-label">Our Caregivers</div>
+      <h2 class="section-h">The People Behind the Care</h2>
+      <p class="section-p" style="max-width:100%;margin-bottom:20px">Our caregivers are the heart of Sowell Home Attendants &mdash; certified, trained professionals who chose home care as a calling, not just a job.</p>
+      <p class="section-p" style="max-width:100%;margin-bottom:32px">Before joining our team, every caregiver undergoes thorough vetting &mdash; criminal background checks, reference verification, skills assessments, and orientation training. We only bring on individuals we&rsquo;d trust with our own families.</p>
+      <div class="check-row">State and federal background checks</div>
+      <div class="check-row">CPR and first aid certified</div>
+      <div class="check-row">Ongoing education and skills training</div>
+      <div class="check-row">Fully insured and bonded</div>
+      <div class="check-row">Personality-matched to each client</div>
+    </div>
+    <div class="team-card">
+      <div class="section-label">Join Our Team</div>
+      <h3>Compassionate Caregivers Wanted</h3>
+      <p>If you have a heart for service and want to make a real difference in people&rsquo;s lives, we&rsquo;d love to hear from you. We offer competitive compensation, flexible scheduling, and a supportive team environment.</p>
+      <a href="contact.html" class="btn btn-primary">Apply to Join Our Team</a>
+    </div>
+  </div>
+</div>
+<section class="cta-band">
+  <h2>Let&rsquo;s Talk About Your Family&rsquo;s Needs</h2>
+  <p>Our care coordinators are ready to listen, guide, and build a plan that puts your loved one first.</p>
+  <div class="cta-actions">
+    <a href="contact.html" class="btn btn-white">Get a Free Consultation</a>
+    <a href="services.html" class="btn btn-outline" style="border-color:rgba(255,255,255,.45);color:#fff">Explore Services</a>
+  </div>
+</section>
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <span class="f-name">Sowell Home Attendants</span>
+      <span class="f-sub">Care &middot; Dignity &middot; Comfort</span>
+      <p>Compassionate, professional home care for families who deserve the best &mdash; delivered with warmth, expertise, and heart.</p>
+    </div>
+    <div class="f-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="services.html">Personal Care</a></li>
+        <li><a href="services.html">Companion Care</a></li>
+        <li><a href="services.html">Skilled Nursing</a></li>
+        <li><a href="services.html">Memory Care</a></li>
+        <li><a href="services.html">Overnight Care</a></li>
+        <li><a href="services.html">Respite Care</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="about.html">Our Values</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">Careers</a></li>
+      </ul>
+    </div>
+    <div class="f-col f-contact">
+      <h4>Get in Touch</h4>
+      <p>&#9993; <a href="mailto:Info@sowellhomeattendants.com">Info@sowellhomeattendants.com</a></p>
+      <p>&#128205; Serving families in our community and surrounding areas</p>
+      <p>&#128336; Available 24/7 for care inquiries</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 Sowell Home Attendants. All rights reserved.</span>
+    <span>Licensed Home Care Agency</span>
+  </div>
+</footer>
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>30)})
+</script>
+</body></html>
